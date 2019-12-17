@@ -5,6 +5,7 @@ using org.apache.pdfbox.util;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,10 +64,10 @@ namespace HalFiyatlari.Schedule
                                     dataItem.Unit = tdItem.InnerText.Trim().ToUpper();
                                     break;
                                 case 2://en düşük fiyat
-                                    dataItem.MinPrice = Double.Parse(tdItem.InnerText.Trim().Replace(",", ".").Replace("TL", ""));
+                                    dataItem.MinPrice = Double.Parse(tdItem.InnerText.Trim().Replace(",", ".").Replace("TL", ""), CultureInfo.InvariantCulture);
                                     break;
                                 case 3://En yüksek fiyat
-                                    dataItem.MaxPrice = Double.Parse(tdItem.InnerText.Trim().Replace(",", ".").Replace("TL", ""));
+                                    dataItem.MaxPrice = Double.Parse(tdItem.InnerText.Trim().Replace(",", ".").Replace("TL", ""), CultureInfo.InvariantCulture);
                                     break;
 
                             }
@@ -134,10 +135,11 @@ namespace HalFiyatlari.Schedule
                             dataItem.Unit = trItem.InnerText.Trim().ToUpper();
                             break;
                         case 3:
-                            dataItem.MinPrice = Double.Parse(trItem.InnerText.Trim().Replace(",", ".").Replace("TL", ""));
+                            
+                            dataItem.MinPrice = Double.Parse(trItem.InnerText.Trim().Replace(",", ".").Replace("TL", ""), CultureInfo.InvariantCulture);
                             break;
                         case 4:
-                            dataItem.MaxPrice = Double.Parse(trItem.InnerText.Trim().Replace(",", ".").Replace("TL", ""));
+                            dataItem.MaxPrice = Double.Parse(trItem.InnerText.Trim().Replace(",", ".").Replace("TL", ""), CultureInfo.InvariantCulture);
                             break;
                     }
 
@@ -178,10 +180,10 @@ namespace HalFiyatlari.Schedule
                             dataItem.Unit = rowItem.Trim().ToUpper();
                             break;
                         case 2:                          
-                            dataItem.MinPrice = Double.Parse(rowItem.Trim().Replace(",", ".").Replace("TL", ""));
+                            dataItem.MinPrice = Double.Parse(rowItem.Trim().Replace(",", ".").Replace("TL", ""), CultureInfo.InvariantCulture);
                             break;
                         case 3:
-                            dataItem.MaxPrice = Double.Parse(rowItem.Trim().Replace(",", ".").Replace("TL", ""));
+                            dataItem.MaxPrice = Double.Parse(rowItem.Trim().Replace(",", ".").Replace("TL", ""), CultureInfo.InvariantCulture);
                             break;
 
                     }
