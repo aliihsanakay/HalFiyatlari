@@ -1,4 +1,5 @@
 ﻿using HalFiyatlari.Schedule.Models;
+using HalFiyatlari.Schedule.Models.WebSiteModel;
 using HtmlAgilityPack;
 using org.apache.pdfbox.pdmodel;
 using org.apache.pdfbox.util;
@@ -135,7 +136,7 @@ namespace HalFiyatlari.Schedule
                             dataItem.Unit = trItem.InnerText.Trim().ToUpper();
                             break;
                         case 3:
-                            
+
                             dataItem.MinPrice = Double.Parse(trItem.InnerText.Trim().Replace(",", ".").Replace("TL", ""), CultureInfo.InvariantCulture);
                             break;
                         case 4:
@@ -162,24 +163,24 @@ namespace HalFiyatlari.Schedule
             List<WebSiteHalData> listHalData = new List<WebSiteHalData>();
             var data = parseUsingPDFBox(@"C:\New folder\fb457ec1-6bf1-4b3d-bc1e-eb5f2b4574b7.pdf");
             data = data.Replace(@"ÜRÜNLER#BİRİMİ^ORTALAMA EN ^DÜŞÜK FİYAT ^TEKLİFİ^ORTALAMA EN ^YÜKSEK FİYAT ^TEKLİFİ^ÜRÜNLER#BİRİMİ#,^ORTALAMA EN ^YÜKSEK FİYAT ^TEKLİFİ^", "");
-            data = data.Replace(@"^ANTALYA BÜYÜKŞEHİR BELEDİYESİ MERKEZ TOPTANCI HAL ESNAFINDAN ALINAN FİYATLARA GÖRE OLUŞTURULAN PİYASA FİYAT LİSTESİDİR. ^BİLGİLENDİRME AMAÇLI OLUP, RESMİ EVRAK NİTELİĞİ TAŞIMAZ.^             ANTALYA BÜYÜKŞEHİR BELEDİYESİ MERKEZ HAL İŞLENMEMİŞ ÜRÜN FİYAT ^LİSTESİ^"+DateTime.Now.ToString("dd.MM.yyyy"), "");
+            data = data.Replace(@"^ANTALYA BÜYÜKŞEHİR BELEDİYESİ MERKEZ TOPTANCI HAL ESNAFINDAN ALINAN FİYATLARA GÖRE OLUŞTURULAN PİYASA FİYAT LİSTESİDİR. ^BİLGİLENDİRME AMAÇLI OLUP, RESMİ EVRAK NİTELİĞİ TAŞIMAZ.^             ANTALYA BÜYÜKŞEHİR BELEDİYESİ MERKEZ HAL İŞLENMEMİŞ ÜRÜN FİYAT ^LİSTESİ^" + DateTime.Now.ToString("dd.MM.yyyy"), "");
             foreach (var lineItem in data.Split('^'))
             {
                 int i = 0;
                 WebSiteHalData dataItem = new WebSiteHalData();
-               var orjLineItem = lineItem.Trim().Replace(" ", "*").Replace("****************","#");
-              
+                var orjLineItem = lineItem.Trim().Replace(" ", "*").Replace("****************", "#");
+
                 foreach (var rowItem in orjLineItem.Split('#'))
                 {
                     switch (i)
                     {
                         case 0:
-                            dataItem.ProductName = rowItem.Replace("*"," ").Trim();
+                            dataItem.ProductName = rowItem.Replace("*", " ").Trim();
                             break;
                         case 1:
                             dataItem.Unit = rowItem.Trim().ToUpper();
                             break;
-                        case 2:                          
+                        case 2:
                             dataItem.MinPrice = Double.Parse(rowItem.Trim().Replace(",", ".").Replace("TL", ""), CultureInfo.InvariantCulture);
                             break;
                         case 3:
@@ -194,8 +195,8 @@ namespace HalFiyatlari.Schedule
                 dataItem.ProductCategory = "Sebze";
                 dataItem.Currency = "TL";
                 listHalData.Add(dataItem);
-                   
-               
+
+
             }
         }
 
@@ -218,6 +219,86 @@ namespace HalFiyatlari.Schedule
                 {
                     doc.close();
                 }
+            }
+        }
+
+        private void BtnAnkaraBelediyesi_Click(object sender, RoutedEventArgs e)
+        {
+            List<WebSiteHalData> listHalData = new List<WebSiteHalData>();
+            var client = new RestClient("https://www.ankara.bel.tr/index.php/tools/blocks/fruit_vegetable_fish_market/hal_balik_tablo.php?tip=hal&bitis=" + DateTime.Now.ToString("dd/MM/yyyy") + "&baslangic=" + DateTime.Now.ToString("dd/MM/yyyy") + "&isMobile=false");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("cache-control", "no-cache");
+            IRestResponse response = client.Execute(request);
+            RestSharp.Serialization.Json.JsonSerializer s = new RestSharp.Serialization.Json.JsonSerializer();
+            var result = s.Deserialize<AnkaraBBHalModel>(response);
+
+            foreach (var item in result.aaData)
+            {
+                WebSiteHalData dataItem = new WebSiteHalData();
+                dataItem.ProductName = item[1].ToString();
+                dataItem.Unit = item[2].ToString().ToUpper();
+                dataItem.MinPrice = Double.Parse(item[3].Trim().Replace(",", ".").Replace("TL", ""), CultureInfo.InvariantCulture);
+                dataItem.MaxPrice = Double.Parse(item[4].Trim().Replace(",", ".").Replace("TL", ""), CultureInfo.InvariantCulture);
+                dataItem.ProductCategory = "Sebze";
+                dataItem.Currency = "TL";
+                listHalData.Add(dataItem);
+            }
+
+
+        }
+
+        private void BtnYalovaBelediyesi_Click(object sender, RoutedEventArgs e)
+        {
+            List<WebSiteHalData> listHalData = new List<WebSiteHalData>();
+            var client = new RestClient("https://ebelediye.yalova.bel.tr/HalFiyatSorgulama.aspx");
+            var request = new RestRequest(Method.GET);
+            request.AddHeader("cache-control", "no-cache");
+            client.Encoding = Encoding.UTF8;
+            IRestResponse response = client.Execute(request);
+
+            HtmlAgilityPack.HtmlDocument document = new HtmlAgilityPack.HtmlDocument();
+            document.LoadHtml(response.Content); // html kodlarını bir HtmlDocment nesnesine yüklüyoruz.
+            HtmlNodeCollection tdList = document.DocumentNode.SelectNodes("//table[@class='gridStyle']//tr[@class='gridRowStyle']//td");
+            int i = 0;
+            bool dateCheck = false;
+            WebSiteHalData dataItem = new WebSiteHalData();
+            foreach (var tdItem in tdList)
+            {
+                if (i == 0 && tdItem.InnerText.Trim() == DateTime.Now.ToString("dd.MM.yyyy"))
+                {
+                    dateCheck = true;
+                }
+                if (dateCheck)
+                {
+                    switch (i)
+                    {
+                     
+                        case 1://Min Fiyat
+                            dataItem.MinPrice = Double.Parse(tdItem.InnerText.Trim().Replace(",", ".").Replace("TL", ""), CultureInfo.InvariantCulture);
+                            break;
+                        case 2://Max Fiyat
+                            dataItem.MaxPrice = Double.Parse(tdItem.InnerText.Trim().Replace(",", ".").Replace("TL", ""), CultureInfo.InvariantCulture);
+                            break;
+                        case 3://Ürün Adı
+                            dataItem.ProductName = tdItem.InnerText.Trim();
+                            if (dataItem.ProductName.Contains("(") && dataItem.ProductName.Contains(")"))
+                                dataItem.Unit = dataItem.ProductName.Substring(dataItem.ProductName.IndexOf("(") + 1, (dataItem.ProductName.IndexOf(")") - dataItem.ProductName.IndexOf("(")) - 1);
+                            break;
+                    }
+                    if (i == 3)
+                    {
+                        dataItem.Currency = "TL";
+                        listHalData.Add(dataItem);
+                        dataItem = new WebSiteHalData();
+                        i = 0;
+                        dateCheck = false;
+
+                    }
+                    else
+                        i++;
+
+                }
+
             }
         }
     }

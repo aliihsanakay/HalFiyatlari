@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\WebSiteHalData.cs" />
+    <Compile Include="Models\WebSiteModel\AnkaraBBHalModel.cs" />
     <Compile Include="Models\WebSiteModel\IbbSiteHalModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

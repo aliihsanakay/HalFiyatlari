@@ -10,6 +10,8 @@
         <Button x:Name="btnIstanbulBelediyesi" Content="İstanbul(İBB) Hal Fiyatları " HorizontalAlignment="Left" Margin="10,37,0,0" VerticalAlignment="Top" Width="423" Height="27" Click="BtnIstanbulBelediyesi_Click" />
         <Button x:Name="btnIzmirBelediyesi" Content="İzmir BB Hal Fiyatları " HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" Width="423" Height="27" Click="BtnIzmirBelediyesi_Click"  />
         <Button x:Name="btnAntalyaBelediyesi" Content="Antalya BB Hal Fiyatları " HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Width="423" Height="27" Click="BtnAntalyaBelediyesi_Click"   />
+        <Button x:Name="btnAnkaraBelediyesi" Content="Ankara BB Hal Fiyatları " HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top" Width="423" Height="27" Click="BtnAnkaraBelediyesi_Click"   />
+        <Button x:Name="btnYalovaBelediyesi" Content="Yalova BB Hal Fiyatları " HorizontalAlignment="Left" Margin="10,201,0,0" VerticalAlignment="Top" Width="423" Height="27" Click="BtnYalovaBelediyesi_Click"    />
 
     </Grid>
 </Window>
