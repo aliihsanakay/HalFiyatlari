@@ -15,6 +15,7 @@ namespace HalFiyatlari.Schedule.Models
         public double MaxPrice { get; set; }
         public DateTime ReadDate { get; set; }
         public string Currency { get; set; }
+        public int CustomerId { get; set; }
 
         public WebSiteHalData()
         {

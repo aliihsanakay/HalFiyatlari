@@ -30,6 +30,7 @@ namespace HalFiyatlari.Schedule
         public MainWindow()
         {
             InitializeComponent();
+            Product.ChangeStartScreen("");
         }
 
         private void BtnIstanbulBelediyesi_Click(object sender, RoutedEventArgs e)
