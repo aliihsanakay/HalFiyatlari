@@ -120,9 +120,6 @@
     <Reference Include="junit, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Pdfbox.1.1.1\lib\junit.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=8.0.18.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
-      <HintPath>..\packages\MySql.Data.8.0.18\lib\net452\MySql.Data.dll</HintPath>
-    </Reference>
     <Reference Include="pdfbox-1.8.2, Version=1.8.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Pdfbox.1.1.1\lib\pdfbox-1.8.2.dll</HintPath>
     </Reference>
@@ -175,11 +172,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\DataLayer\DataAccess.cs" />
-    <Compile Include="Models\DataLayer\DataAccessLayer.cs" />
-    <Compile Include="Models\DataLayer\DatabaseContext.cs" />
     <Compile Include="Models\EntityLayer\Product.cs" />
-    <Compile Include="Models\Helper\GlobalSettings.cs" />
     <Compile Include="Models\WebSiteHalData.cs" />
     <Compile Include="Models\WebSiteModel\AnkaraBBHalModel.cs" />
     <Compile Include="Models\WebSiteModel\IbbSiteHalModel.cs" />
@@ -210,8 +203,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ExternalDll\Eryaz.Utility.dll" />
+    <Folder Include="Models\Helper\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\HalFiyatlari.Business\HalFiyatlari.Business.csproj">
+      <Project>{004c71f3-b823-4442-a75e-d19752189b10}</Project>
+      <Name>HalFiyatlari.Business</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

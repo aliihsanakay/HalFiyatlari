@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/HalFiyatlari.Schedule/bin/Debug
+/.vs/HalFiyatlari/v16
+/HalFiyatlari.Schedule/obj/Debug
+/packages

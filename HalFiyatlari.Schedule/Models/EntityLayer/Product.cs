@@ -1,20 +1,22 @@
-﻿using System.Data;
+﻿using HalFiyatlari.Business;
+using System.Collections.Generic;
+using System.Data;
 using System.Reflection;
+
 
 namespace HalFiyatlari.Schedule.Models
 {
     public class Product : DataAccess
     {
-        public static bool ChangeStartScreen(string startScreen)
+        public static bool InsertProduct(List<WebSiteHalData> list)
         {
-            return DAL.ChangeStartScreen(startScreen);
+            foreach (var item in list)
+            {
+                DAL.InsertProduct(item.ProductName.ToUpper(), item.ProductCategory, item.Unit, item.MinPrice, item.MaxPrice, item.Currency, item.CustomerId);
+            }
+
+            return true;
         }
     }
-    public partial class DataAccessLayer
-    {
-        public bool ChangeStartScreen(string pStartScreen)
-        {
-            return DatabaseContext.ExecuteNonQuery(CommandType.StoredProcedure, "_Admin_Update_B2BRuleStartScreen", MethodBase.GetCurrentMethod().GetParameters(), new object[] { pStartScreen });
-        }
-    }
+   
 }

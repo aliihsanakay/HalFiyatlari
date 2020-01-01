@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="HalFiyatlari.Mobile.MainPage">
+
+    <StackLayout BackgroundColor="#1289A7">
+        <Grid Margin="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1" ></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Image Source="mainpagelogo.jpg" Grid.Row="1" Margin="0" />
+
+            <ListView x:Name="MyListView" Grid.Row="2" Margin="0"
+            ItemsSource="{Binding Items}"
+            ItemTapped="Handle_ItemTapped"
+           HasUnevenRows="True"
+              SeparatorVisibility="None"
+            >
+                <ListView.Header>
+                    <Frame >
+                        <Grid>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="Plaka"
+                           HorizontalOptions="Start"
+                           FontSize="Large"/>
+                            <Label Grid.Column="1"
+                       Text="Hal Adı"
+                           HorizontalOptions="Center"
+                           FontSize="Large"/>
+
+                            <BoxView Grid.Row="1"
+                             Grid.ColumnSpan="2"
+                             HeightRequest="1"
+                             BackgroundColor="LightGray"/>
+                        </Grid>
+                    </Frame>
+                </ListView.Header>
+                <d:ListView.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Item 1</x:String>
+                        <x:String>Item 2</x:String>
+                        <x:String>Item 3</x:String>
+                        <x:String>Item 4</x:String>
+                        <x:String>Item 5</x:String>
+                    </x:Array>
+                </d:ListView.ItemsSource>
+                <!--Built in Cells-->
+                <ListView.ItemTemplate >
+
+                    <DataTemplate>
+                        <ViewCell >
+                            <Frame>
+                                <Grid Margin="20,10" >
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+
+                                <Label Text="{Binding Code}"
+                               HorizontalOptions="Start"
+                               VerticalOptions="Center" FontSize="Medium"/>
+                                <Label Grid.Column="1"
+                               Text="{Binding Name}"
+                               HorizontalOptions="Center"
+                               VerticalOptions="Center" FontSize="Medium"/>
+
+                                <BoxView Grid.Row="1"
+                             Grid.ColumnSpan="2"
+                             HeightRequest="1"
+                             BackgroundColor="LightGray"/>
+                            </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

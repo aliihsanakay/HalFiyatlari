@@ -21,5 +21,7 @@ namespace HalFiyatlari.Schedule.Models
         {
             ReadDate = DateTime.Now;
         }
+
     }
+
 }
