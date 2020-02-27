@@ -1,26 +1,211 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="HalFiyatlari.Mobile.PriceList">
+<ContentPage
+    x:Class="HalFiyatlari.Mobile.PriceList"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
     <ContentPage.Content>
         <StackLayout>
-            <Grid >
+            <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition ></RowDefinition>
-                    <RowDefinition ></RowDefinition>
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="20" />
+                    <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <Label Grid.Row="1" Text="Seçilen Hal"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" FontSize="Medium" />
-                <Label Grid.Row="2" x:Name="lblHalName"  Text="{Binding selectedCustomer}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" FontSize="Medium" />
+                <Label
+                    Grid.Row="0"
+                    Margin="0"
+                    FontSize="Medium"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Seçilen Hal"
+                    VerticalOptions="CenterAndExpand" />
+                <Label
+                    x:Name="lblHalName"
+                    Grid.Row="1"
+                    Margin="0"
+                    FontSize="Medium"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="{Binding selectedCustomer}"
+                    TextColor="#c0392b"
+                    VerticalOptions="CenterAndExpand" />
+                <Label
+                    x:Name="lblNoData"
+                    Grid.Row="2"
+                    Margin="0"
+                    FontSize="Large"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="Bugün için veri bulamadık :("
+                    TextColor="#2980b9"
+                    VerticalOptions="CenterAndExpand" />
+
+                <ListView
+                    x:Name="productPriceList"
+                    Grid.Row="2"
+                    Margin="0"
+                    HasUnevenRows="True"
+                    ItemTapped="productPriceList_ItemTapped"
+                    ItemsSource="{Binding ProductItems}"
+                    SeparatorVisibility="None">
+                    <ListView.Header>
+                        <Frame>
+                            <Grid>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <Label
+                                    FontSize="Medium"
+                                    HorizontalOptions="Start"
+                                    Text="Adı" />
+                                <Label
+                                    Grid.Column="1"
+                                    FontSize="Medium"
+                                    HorizontalOptions="Center"
+                                    Text="E.Düşük" />
+                                <Label
+                                    Grid.Column="2"
+                                    FontSize="Medium"
+                                    HorizontalOptions="Center"
+                                    Text="Fiyat" />
+                                <Label
+                                    Grid.Column="3"
+                                    FontSize="Medium"
+                                    HorizontalOptions="Center"
+                                    Text="E.Yüksek" />
+                                <Label
+                                    Grid.Column="4"
+                                    FontSize="Medium"
+                                    HorizontalOptions="Center"
+                                    Text="Fiyat" />
+                                <Label
+                                    Grid.Column="5"
+                                    FontSize="Medium"
+                                    HorizontalOptions="Center"
+                                    Text="-&gt;" />
+                                <BoxView
+                                    Grid.Row="1"
+                                    Grid.ColumnSpan="6"
+                                    BackgroundColor="#7f8c8d"
+                                    HeightRequest="1" />
+                            </Grid>
+                        </Frame>
+                    </ListView.Header>
+                    <d:ListView.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Item 1</x:String>
+                        </x:Array>
+                    </d:ListView.ItemsSource>
+                    <!--  Built in Cells  -->
+                    <ListView.ItemTemplate>
+
+                        <DataTemplate>
+                            <ViewCell Appearing="Cell_OnAppearing">
+                                <Frame>
+                                    <Grid Margin="0,0">
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="1" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="15" />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="15" />
+                                            <ColumnDefinition />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="0"
+                                            Margin="0"
+                                            FontSize="Small"
+                                            HorizontalOptions="Start"
+                                            Text="{Binding Name}"
+                                            VerticalOptions="Center" />
+                                        <Image
+                                            Grid.Row="1"
+                                            Grid.Column="1"
+                                            Margin="0"
+                                            HeightRequest="15"
+                                            Source="{Binding MinPriceImage}"
+                                            WidthRequest="15" />
+
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="2"
+                                            Margin="0"
+                                            FontSize="Small"
+                                            HorizontalOptions="Center"
+                                            Text="{Binding MinPriceStr}"
+                                            VerticalOptions="Center" />
+
+
+
+
+                                        <Label
+                                            Grid.Row="1"
+                                            Grid.Column="3"
+                                            Margin="0"
+                                            FontSize="Small"
+                                            HorizontalOptions="Center"
+                                            Text="{Binding MaxPriceStr}"
+                                            VerticalOptions="Center" />
+                                        <Image
+                                            Grid.Row="1"
+                                            Grid.Column="4"
+                                            Margin="0"
+                                            HeightRequest="15"
+                                            Source="{Binding MaxPriceImage}"
+                                            WidthRequest="15" />
+
+                                        <Button
+                                            x:Name="btnDetail"
+                                            Grid.Row="1"
+                                            Grid.Column="5"
+                                            Margin="0"
+                                            BackgroundColor="#2980b9"
+                                            Clicked="btnDetail_Clicked"
+                                            CommandParameter="{Binding Id}"
+                                            FontSize="Small"
+                                            HeightRequest="35"
+                                            HorizontalOptions="Start"
+                                            Text="Detay"
+                                            TextColor="White"
+                                            VerticalOptions="Start" />
+
+                                        <BoxView
+                                            Grid.Row="0"
+                                            Grid.ColumnSpan="6"
+                                            BackgroundColor="#7f8c8d"
+                                            HeightRequest="1" />
+                                    </Grid>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+
 
             </Grid>
-         
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

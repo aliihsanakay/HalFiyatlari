@@ -50,13 +50,36 @@ namespace HalFiyatlari.Api.Models.Select
             }
             return list;
         }
+        public static List<Product> GetProductByCustomerIdAndTodayPrice(int pCustomerId)
+        {
+            List<Product> list = new List<Product>();
+            DataTable dt = DAL.GetProductByCustomerIdAndTodayPrice(pCustomerId);
+            foreach (DataRow row in dt.Rows)
+            {
+                Product product = new Product();
+                product.Id = row.Field<int>("ID");
+                product.Name = row.Field<string>("NAME");
+                product.Category = row.Field<string>("CATEGORY");
+                product.Unit = row.Field<string>("UNIT");
+                product.MinPrice = row.Field<double>("MINPRICE");
+                product.MaxPrice = row.Field<double>("MAXPRICE");
+                product.OldMinPrice = row.Field<double>("OLDDAYMINPRICE");
+                product.OldMaxPrice = row.Field<double>("OLDDAYMAXPRICE");
+                product.Currency = row.Field<string>("CURRENCY");
+                product.CreateDate = row.Field<DateTime>("CREATEDATE");
+                product.CalculateProductPriceChange();
+                list.Add(product);
+            }
+            return list;
+        }
+   
 
         private void CalculateProductPriceChange()
         {
             IsMinPriceRise = MinPrice > OldMinPrice;//yükselişte;
             IsMaxPriceRise = MaxPrice > OldMaxPrice;//yükselişte;
-            MinRateOfChange = (MinPrice / OldMinPrice - 1) * 100;
-            MaxRateOfChange = (MaxPrice / OldMaxPrice - 1) * 100;
+            MinRateOfChange = OldMinPrice > 0 && MinPrice > 0 ? (MinPrice / OldMinPrice - 1) * 100 : 0;
+            MaxRateOfChange = OldMaxPrice > 0 && MaxPrice > 0 ? (MaxPrice / OldMaxPrice - 1) * 100 : 0;
 
         }
     }

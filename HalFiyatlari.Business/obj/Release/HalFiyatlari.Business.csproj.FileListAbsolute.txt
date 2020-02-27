@@ -1,0 +1,15 @@
+C:\Users\ALI\source\repos\HalFiyatlari\HalFiyatlari.Business\bin\Release\HalFiyatlari.Business.dll.config
+C:\Users\ALI\source\repos\HalFiyatlari\HalFiyatlari.Business\bin\Release\HalFiyatlari.Business.dll
+C:\Users\ALI\source\repos\HalFiyatlari\HalFiyatlari.Business\bin\Release\HalFiyatlari.Business.pdb
+C:\Users\ALI\source\repos\HalFiyatlari\HalFiyatlari.Business\bin\Release\BouncyCastle.Crypto.dll
+C:\Users\ALI\source\repos\HalFiyatlari\HalFiyatlari.Business\bin\Release\Eryaz.Utility.dll
+C:\Users\ALI\source\repos\HalFiyatlari\HalFiyatlari.Business\bin\Release\Google.Protobuf.dll
+C:\Users\ALI\source\repos\HalFiyatlari\HalFiyatlari.Business\bin\Release\MySql.Data.dll
+C:\Users\ALI\source\repos\HalFiyatlari\HalFiyatlari.Business\bin\Release\Renci.SshNet.dll
+C:\Users\ALI\source\repos\HalFiyatlari\HalFiyatlari.Business\bin\Release\Google.Protobuf.xml
+C:\Users\ALI\source\repos\HalFiyatlari\HalFiyatlari.Business\bin\Release\MySql.Data.xml
+C:\Users\ALI\source\repos\HalFiyatlari\HalFiyatlari.Business\bin\Release\Renci.SshNet.xml
+C:\Users\ALI\source\repos\HalFiyatlari\HalFiyatlari.Business\obj\Release\HalFiyatlari.Business.csprojAssemblyReference.cache
+C:\Users\ALI\source\repos\HalFiyatlari\HalFiyatlari.Business\obj\Release\HalFiyatlari.Business.csproj.CopyComplete
+C:\Users\ALI\source\repos\HalFiyatlari\HalFiyatlari.Business\obj\Release\HalFiyatlari.Business.dll
+C:\Users\ALI\source\repos\HalFiyatlari\HalFiyatlari.Business\obj\Release\HalFiyatlari.Business.pdb

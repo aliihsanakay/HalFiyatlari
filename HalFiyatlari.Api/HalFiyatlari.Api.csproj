@@ -182,6 +182,7 @@
     </Compile>
     <Compile Include="Models\Select\Customer.cs" />
     <Compile Include="Models\Select\Product.cs" />
+    <Compile Include="Models\Select\ProductPrice.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

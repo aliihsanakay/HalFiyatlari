@@ -1,52 +1,61 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             x:Class="HalFiyatlari.Mobile.MainPage">
+<ContentPage
+    x:Class="HalFiyatlari.Mobile.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
 
     <StackLayout BackgroundColor="#1289A7">
         <Grid Margin="0">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1" ></RowDefinition>
-                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="150" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
 
-            <Image Source="mainpagelogo.jpg" Grid.Row="1" Margin="0" />
+            <Image
+                Grid.Row="0"
+                Margin="0"
+                Source="mainpagelogo.jpg" />
 
-            <ListView x:Name="MyListView" Grid.Row="2" Margin="0"
-            ItemsSource="{Binding Items}"
-            ItemTapped="Handle_ItemTapped"
-           HasUnevenRows="True"
-              SeparatorVisibility="None"
-            >
+            <ListView
+                x:Name="MyListView"
+                Grid.Row="1"
+                Margin="0"
+                HasUnevenRows="True"
+                ItemTapped="Handle_ItemTapped"
+                ItemsSource="{Binding Items}"
+                SeparatorVisibility="None">
                 <ListView.Header>
-                    <Frame >
+                    <Frame>
                         <Grid>
 
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="*"/>
-                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*" />
+                                <RowDefinition Height="Auto" />
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition/>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
                             </Grid.ColumnDefinitions>
 
-                            <Label Text="Plaka"
-                           HorizontalOptions="Start"
-                           FontSize="Large"/>
-                            <Label Grid.Column="1"
-                       Text="Hal Adı"
-                           HorizontalOptions="Center"
-                           FontSize="Large"/>
+                            <Label
+                                FontSize="Large"
+                                HorizontalOptions="Start"
+                                Text="Plaka" />
+                            <Label
+                                Grid.Column="1"
+                                FontSize="Large"
+                                HorizontalOptions="Center"
+                                Text="Hal Adı" />
 
-                            <BoxView Grid.Row="1"
-                             Grid.ColumnSpan="2"
-                             HeightRequest="1"
-                             BackgroundColor="LightGray"/>
+                            <BoxView
+                                Grid.Row="1"
+                                Grid.ColumnSpan="2"
+                                BackgroundColor="LightGray"
+                                HeightRequest="1" />
                         </Grid>
                     </Frame>
                 </ListView.Header>
@@ -59,37 +68,42 @@
                         <x:String>Item 5</x:String>
                     </x:Array>
                 </d:ListView.ItemsSource>
-                <!--Built in Cells-->
-                <ListView.ItemTemplate >
+                <!--  Built in Cells  -->
+                <ListView.ItemTemplate>
 
                     <DataTemplate>
-                        <ViewCell >
+                        <ViewCell>
                             <Frame>
-                                <Grid Margin="20,10" >
+                                <Grid Margin="20,10">
 
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
 
-                                <Label Text="{Binding Code}"
-                               HorizontalOptions="Start"
-                               VerticalOptions="Center" FontSize="Medium"/>
-                                <Label Grid.Column="1"
-                               Text="{Binding Name}"
-                               HorizontalOptions="Center"
-                               VerticalOptions="Center" FontSize="Medium"/>
+                                    <Label
+                                        FontSize="Medium"
+                                        HorizontalOptions="Start"
+                                        Text="{Binding Code}"
+                                        VerticalOptions="Center" />
+                                    <Label
+                                        Grid.Column="1"
+                                        FontSize="Medium"
+                                        HorizontalOptions="Center"
+                                        Text="{Binding Name}"
+                                        VerticalOptions="Center" />
 
-                                <BoxView Grid.Row="1"
-                             Grid.ColumnSpan="2"
-                             HeightRequest="1"
-                             BackgroundColor="LightGray"/>
-                            </Grid>
+                                    <BoxView
+                                        Grid.Row="1"
+                                        Grid.ColumnSpan="2"
+                                        BackgroundColor="LightGray"
+                                        HeightRequest="1" />
+                                </Grid>
                             </Frame>
                         </ViewCell>
                     </DataTemplate>

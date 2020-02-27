@@ -21,7 +21,19 @@ namespace HalFiyatlari.Api.Controllers
             var list = Product.GetProductByCustomerId(id);
             return Json<List<Product>>(list);
         }
+        [HttpGet, Route("api/halfiyatlari/getproductpricebyproductId")]
+        public JsonResult<List<ProductPrice>> GetProductPriceByProductId(int id)
+        {
+            var list = ProductPrice.GetProductPriceByProductId(id);
+            return Json<List<ProductPrice>>(list);
+        }
 
+        [HttpGet, Route("api/halfiyatlari/getproductbytodayprice")]
+        public JsonResult<List<Product>> GetProductByCustomerIdTodayPrice(int id)
+        {
+            var list = Product.GetProductByCustomerIdAndTodayPrice(id);
+            return Json<List<Product>>(list);
+        }
 
 
     }

@@ -21,27 +21,12 @@ namespace HalFiyatlari.Mobile
         public MainPage()
         {
             InitializeComponent();
+
+
            
-
-            List<Customer> list = new List<Customer>();
-            Customer c = new Customer();
-            c.Code = "07";
-            c.Name = "Antalya";
-            list.Add(c);
-            Customer c1 = new Customer();
-            c1.Code = "34";
-            c1.Name = "İstanbul BB Hali";
-            list.Add(c1);
-
-            Customer c2 = new Customer();
-            c2.Code = "80";
-            c2.Name = "Yalova Büyükşehir Hali";
-            list.Add(c2);
-            list.Add(c1);
-            list.Add(c1);
-            list.Add(c);
-            list.Add(c);
-            MyListView.ItemsSource = list;
+           
+                MyListView.ItemsSource = (Customer.GetCustomer());
+          
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
