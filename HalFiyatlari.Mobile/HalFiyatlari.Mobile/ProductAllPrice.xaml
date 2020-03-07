@@ -8,20 +8,28 @@
     mc:Ignorable="d">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition  Height="25"></RowDefinition>
+            <RowDefinition  Height="25"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="80" ></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Label Text="Test" Grid.Column="0" Grid.Row="0"></Label>
-        <Label Text="Test111" Grid.Row="0" Grid.Column="1"></Label>
-    <ListView
+        <Label Margin="10,5,0,0" Text="Ürün Adı"   Grid.Column="0" Grid.Row="0" FontSize="Subtitle"/>
+        <Label Margin="10,5,0,0" Text="ELMA GOLDEN"  Grid.Column="1" Grid.Row="0" FontSize="Subtitle"></Label>
+
+        <Label Margin="10,5,0,0" Text="Ürün Tipi"  Grid.Column="0" Grid.Row="1" FontSize="Subtitle"></Label>
+        <Label Margin="10,5,0,0" Text="KASA" Grid.Column="1" Grid.Row="1" FontSize="Subtitle" ></Label>
+
+        <Label Margin="10,5,0,0" Text="Birimi"  Grid.Column="0" Grid.Row="2" FontSize="Subtitle"></Label>
+        <Label Margin="10,5,0,0" Text="ADET"  Grid.Column="1" Grid.Row="2" FontSize="Subtitle"></Label>
+        <ListView 
         x:Name="lstProductAllPrice"
         CachingStrategy="RecycleElement"
         ItemTapped="Handle_ItemTapped"
-        Grid.Row="1"
+        Grid.Row="4"
         ItemsSource="{Binding Items}">
         
         <d:ListView.ItemsSource>
