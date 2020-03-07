@@ -1,0 +1,19 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/HalFiyatlari.Schedule/bin/Debug
+/.vs/HalFiyatlari/v16
+/HalFiyatlari.Schedule/obj/Debug
+/packages
+/HalFiyatlari.Api/bin
+/HalFiyatlari.Api/obj/Debug
+/.vs/HalFiyatlari/config
+/HalFiyatlari.Mobile/HalFiyatlari.Mobile/bin/Debug/netstandard2.0
+/HalFiyatlari.Mobile/HalFiyatlari.Mobile/obj
+/HalFiyatlari.Mobile/HalFiyatlari.Mobile.Android/bin/Debug
+/HalFiyatlari.Mobile/HalFiyatlari.Mobile.Android/obj/.cache
+/HalFiyatlari.Mobile/HalFiyatlari.Mobile.Android/obj/Debug/90
+/HalFiyatlari.Mobile/HalFiyatlari.Mobile.Android/obj
+/HalFiyatlari.Mobile/HalFiyatlari.Mobile.iOS/obj
+/HalFiyatlari.Schedule/HalFiyatlari.Schedule.csproj.user
