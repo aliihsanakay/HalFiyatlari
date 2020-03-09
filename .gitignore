@@ -17,3 +17,6 @@
 /HalFiyatlari.Mobile/HalFiyatlari.Mobile.Android/obj
 /HalFiyatlari.Mobile/HalFiyatlari.Mobile.iOS/obj
 /HalFiyatlari.Schedule/HalFiyatlari.Schedule.csproj.user
+/.vs
+/HalFiyatlari.Api/obj/Release
+/HalFiyatlari.Schedule/obj/Release
