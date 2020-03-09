@@ -81,7 +81,7 @@ namespace HalFiyatlari.Schedule
                     var request = new RestRequest(Method.POST);
                     request.AddHeader("cache-control", "no-cache");
                     request.AddHeader("content-type", "application/x-www-form-urlencoded");
-                    request.AddParameter("application/x-www-form-urlencoded", "tarih=" + DateTime.Now.ToString("yyyy-MM-dd") + "&KategoriId00=" + p + "&send00=1", ParameterType.RequestBody);//KategoriId00 5 Meyve 6 Sebze 7 İhtal Ürünler
+                    request.AddParameter("application/x-www-form-urlencoded", "tarih=" + DateTime.Now.ToString("yyyy-MM-dd") + "&Kategori=" + p + "&send00=1", ParameterType.RequestBody);//KategoriId00 5 Meyve 6 Sebze 7 İhtal Ürünler
                     IRestResponse response = client.Execute(request);
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
