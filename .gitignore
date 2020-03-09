@@ -6,3 +6,8 @@
 /.vs/HalFiyatlari/v16
 /HalFiyatlari.Schedule/obj/Debug
 /packages
+/.vs
+/HalFiyatlari.Api/bin
+/HalFiyatlari.Api/obj
+/HalFiyatlari.Schedule/obj/Release
+/HalFiyatlari.Mobile/HalFiyatlari.Mobile/obj

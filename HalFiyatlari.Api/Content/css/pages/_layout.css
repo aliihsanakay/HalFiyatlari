@@ -1,0 +1,35 @@
+﻿/* For the "inset" look only */
+html {
+    scrollbar-color: rgba(0, 191, 216, 0.8)rgba(0, 0, 0, 0.2);
+    scrollbar-width: thin;
+}
+
+div {
+    scrollbar-color: rgba(0, 191, 216, 0.8)rgba(0, 0, 0, 0.2);
+    scrollbar-width: thin;
+}
+
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(0, 191, 216, 0.2);
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);*/
+    /*-webkit-border-radius: 10px;
+    border-radius: 10px;*/
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 191, 216, 0.8);
+    /*-webkit-border-radius: 10px;
+    border-radius: 10px;*/
+    /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5);*/
+}
+
+    ::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(0, 191, 216, 0.4);
+    }

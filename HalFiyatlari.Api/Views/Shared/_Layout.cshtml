@@ -1,41 +1,236 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Hal fiyatları hakkında kısa açıkmama." />
+    <meta name="keywords" content="hal, fiyat, firsat, hal fiyatlari, hal firsatlari, meyve, sebze, meyve fiyat, meyve fiyatlari, sebze fiyat, sebze fiyatlari." />
+    <meta name="author" content="" />
+    <meta name="generator" content="Byertm v1" />
+
+    <meta property="og:site_name" content="" />
+    <meta property="og:site" content="" />
+    <meta property="og:title" content="" />
+    <meta property="og:description" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:type" content="article" />
+
+    @RenderSection("cMetas", required: false)
+
+    <!-- Website Title -->
+    @*<title>Privacy Policy - Evolo - StartUp HTML Landing Page Template</title>*@
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+
+    <!-- Styles -->
+    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:400,400i,600,700,700i&amp;subset=latin-ext" />
+
+    @Styles.Render("~/bundles/css")
+
+    @RenderSection("cStyleLibrary", required: false)
+
+    @Styles.Render("~/bundles/style")
+
+    @RenderSection("cStyleCode", required: false)
+
+    <!-- Favicon  -->
+    <link rel="icon" href="~/Content/images/favicon.png" />
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+<body data-spy="scroll" data-target=".fixed-top">
+    <!--[if lt IE 8]>
+        <p class="browserupgrade">Tarayıcı sürümünüz çok eski olduğu için web sitesini görüntüleyemiyorsunuz. Lütfen <a href="https://browsehappy.com/">buraya tıklayarak</a> tarayıcınızı yükseltin.</p>
+    <![endif]-->
+    <!-- Preloader -->
+    <div class="spinner-wrapper">
+        <div class="spinner">
+            <div class="bounce1"></div>
+            <div class="bounce2"></div>
+            <div class="bounce3"></div>
+        </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+        <!-- Text Logo - Use this if you don't have a graphic logo -->
+        <!-- <a class="navbar-brand logo-text page-scroll" href="/">Hal Fiyatları</a> -->
+        <!-- Image Logo -->
+        <a href="/" class="navbar-brand logo-image"><img alt="alternative" src="~/Content/images/logo.svg" /></a>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-awesome fas fa-bars"></span>
+            <span class="navbar-toggler-awesome fas fa-times"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav ml-auto">
+                @*<li class="nav-item">
+                        <a href="/#contact" class="nav-link page-scroll">Contact</a>
+                    </li>*@
+                <li class="nav-item">
+                    <a href="@Url.RouteUrl("Home")" class="nav-link -page-scroll">Ana Sayfa <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Api", "Index", "Help", new { area = "" }, new { @class = "nav-link" })
+                </li>
+                @*<li class="nav-item">
+                        <a href="@Url.RouteUrl("TermsConditions")" class="nav-link -page-scroll">Şartlar ve Koşullar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.RouteUrl("PrivacyPolicy")" class="dropdown-item">Gizlilik Politikası</a>
+                    </li>*@
+                <!-- Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a href="javascript:;" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle page-scroll">Ekstra</a>
+                    <div aria-labelledby="navbarDropdown" class="dropdown-menu">
+                        @*<a href="terms-conditions.html" class="dropdown-item"><span class="item-text">Terms Conditions</span></a>*@
+                        <a href="@Url.RouteUrl("TermsConditions")" class="dropdown-item"><span class="item-text">Şartlar ve Koşullar</span></a>
+                        <div class="dropdown-items-divide-hr"></div>
+                        @*<a href="privacy-policy.html" class="dropdown-item"><span class="item-text">Privacy Policy</span></a>*@
+                        <a href="@Url.RouteUrl("PrivacyPolicy")" class="dropdown-item"><span class="item-text">Gizlilik Politikası</span></a>
+                    </div>
+                </li>
+                <!-- end of dropdown menu -->
+                <li class="nav-item">
+                    <a href="@Url.RouteUrl("Contact")" class="nav-link -page-scroll">İletişim</a>
+                </li>
+                @*<li>
+                        @Html.RouteLink("İletişim", "Contact", new { @class = "nav-link -page-scroll" })
+                    </li>*@
+            </ul>
+
+            <span class="nav-item social-icons">
+                <span class="fa-stack">
+                    <a href="javascript:;">
+                        <i class="fas fa-circle fa-stack-2x facebook"></i>
+                        <i class="fab fa-facebook-f fa-stack-1x"></i>
+                    </a>
+                </span>
+
+                <span class="fa-stack">
+                    <a href="javascript:;">
+                        <i class="fas fa-circle fa-stack-2x twitter"></i>
+                        <i class="fab fa-twitter fa-stack-1x"></i>
+                    </a>
+                </span>
+            </span>
+        </div>
+    </nav>
+
+    @if (!IsSectionDefined("cHeader"))
+    {
+        <!-- Default Header -->
+        <header id="header" class="ex-header">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>@ViewBag.Title</h1>
+                    </div>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                    <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
-                </ul>
+        </header>
+    }
+    else
+    {
+        @RenderSection("cHeader", required: false)
+    }
+
+    @RenderSection("cHeaderBreadcrumbs", required: false)
+
+    @RenderBody()
+
+    @RenderSection("cFooterBreadcrumbs", required: false)
+
+    <!-- Footer -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="footer-col">
+                        <h4>Hal Fiyatları</h4>
+                        <p>Kısa açıklama metni girilebilir.</p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="footer-col middle">
+                        <h4>Önerilen Bağlantılar</h4>
+
+                        <ul class="list-unstyled li-space-lg">
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Our business partners <a href="javascript:;" class="turquoise">startupguide.com</a></div>
+                            </li>
+                            <li class="media">
+                                <i class="fas fa-square"></i>
+                                <div class="media-body">Read our <a class="turquoise" href="terms-conditions.html">Terms & Conditions</a>, <a class="turquoise" href="privacy-policy.html">Privacy Policy</a></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="footer-col last">
+                        <h4>Sosyal Medya</h4>
+
+                        <span class="fa-stack fa-lg">
+                            <a href="javascript:;">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-facebook-f fa-stack-1x"></i>
+                            </a>
+                        </span>
+
+                        <span class="fa-stack fa-lg">
+                            <a href="javascript:;">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-twitter fa-stack-1x"></i>
+                            </a>
+                        </span>
+
+                        <span class="fa-stack fa-lg">
+                            <a href="javascript:;">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-google-plus-g fa-stack-1x"></i>
+                            </a>
+                        </span>
+
+                        <span class="fa-stack fa-lg">
+                            <a href="javascript:;">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-instagram fa-stack-1x"></i>
+                            </a>
+                        </span>
+
+                        <span class="fa-stack fa-lg">
+                            <a href="javascript:;">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin-in fa-stack-1x"></i>
+                            </a>
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <p class="p-small">Copyright © @DateTime.Now.Year <a href="https://www.halfiyatlari.com">Hal Fiyatları</a> - Tüm Hakları Saklıdır.</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <!-- Scripts -->
+    @Scripts.Render("~/bundles/js")
+    @RenderSection("cScriptLibrary", required: false)
+
+    @Scripts.Render("~/bundles/script")
+    @RenderSection("cScriptCode", required: false)
 </body>
 </html>

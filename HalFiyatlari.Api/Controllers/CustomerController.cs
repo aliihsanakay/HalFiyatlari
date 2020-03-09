@@ -1,21 +1,16 @@
-﻿using HalFiyatlari.Api.Models.Select;
-using HalFiyatlari.Business;
-using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Web.Http;
+using HalFiyatlari.Business;
 using System.Web.Http.Results;
+using System.Collections.Generic;
+using HalFiyatlari.Api.Models.Select;
 
 namespace HalFiyatlari.Api.Controllers
 {
     public class CustomerController : ApiController
     {
         // GET api/values
-       
-
-
-
-        public JsonResult<List< Customer>> GetCustomer()
+        public JsonResult<List<Customer>> GetCustomer()
         {
             List<Customer> list = new List<Customer>();
             DataTable dt = DataAccess.DAL.GetCustomer();
@@ -31,11 +26,7 @@ namespace HalFiyatlari.Api.Controllers
                 list.Add(customer);
             }
 
-
             return Json<List<Customer>>(list);
         }
-
-
-      
     }
 }

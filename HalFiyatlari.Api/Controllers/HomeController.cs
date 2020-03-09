@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace HalFiyatlari.Api.Controllers
 {
@@ -10,7 +6,32 @@ namespace HalFiyatlari.Api.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Title = "Home Page";
+            ViewBag.Title = "Hal Fiyatları";
+            ViewBag.TitleEng = "Hal Deals";
+
+            return View();
+        }
+
+        public ActionResult PrivacyPolicy()
+        {
+            ViewBag.Title = "Gizlilik Politikası";
+            ViewBag.TitleEng = "Privacy Policy";
+
+            return View();
+        }
+
+        public ActionResult TermsConditions()
+        {
+            ViewBag.Title = "Şartlar ve Koşullar";
+            ViewBag.TitleEng = "Terms & Conditions";
+
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            ViewBag.Title = "İletişim";
+            ViewBag.TitleEng = "Contact";
 
             return View();
         }
