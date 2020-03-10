@@ -215,6 +215,17 @@
     <Content Include="Content\images\down-arrow.png" />
     <Content Include="Content\images\ex-header-background.jpg" />
     <Content Include="Content\images\favicon.png" />
+    <Content Include="Content\images\hal-resim\alanya.png" />
+    <Content Include="Content\images\hal-resim\ankara.png" />
+    <Content Include="Content\images\hal-resim\antalya.png" />
+    <Content Include="Content\images\hal-resim\balikesir.png" />
+    <Content Include="Content\images\hal-resim\bursa.png" />
+    <Content Include="Content\images\hal-resim\ibb.png" />
+    <Content Include="Content\images\hal-resim\izmir.png" />
+    <Content Include="Content\images\hal-resim\kumluca.png" />
+    <Content Include="Content\images\hal-resim\mersin.png" />
+    <Content Include="Content\images\hal-resim\mugla.png" />
+    <Content Include="Content\images\hal-resim\yalova.png" />
     <Content Include="Content\images\header-background.jpg" />
     <Content Include="Content\images\header-teamwork.svg" />
     <Content Include="Content\images\logo.svg" />
