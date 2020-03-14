@@ -14,21 +14,8 @@ namespace HalFiyatlari.Api.Controllers
             ViewBag.TitleEng = "Hal Deals";
 
 
-            List<Customer> list = new List<Customer>();
-            DataTable dt = DataAccess.DAL.GetCustomer();
 
-            foreach (DataRow row in dt.Rows)
-            {
-                Customer customer = new Customer();
-                {
-                    customer.Id = row.Field<int>("ID");
-                    customer.Code = row.Field<string>("CODE");
-                    customer.Name = row.Field<string>("NAME");
-                    customer.Content = row.Field<string>("CONTENT");
-                }
-                list.Add(customer);
-            }
-            ViewBag.Customer = list;
+            ViewBag.Customer = Customer.GetCustomers();
             return View();
         }
 

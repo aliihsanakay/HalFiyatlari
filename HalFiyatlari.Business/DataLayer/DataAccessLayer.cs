@@ -26,6 +26,18 @@ namespace HalFiyatlari.Business
         {
             return DatabaseContext.ExecuteReader(CommandType.StoredProcedure, "GetList_ProductByCustomerId", MethodBase.GetCurrentMethod().GetParameters(), new object[] { pCustomerId });
         }
+        public DataTable GetProductSearch(string pProductIds, int pCustomerId, DateTime pStartDate, DateTime pEndDate)
+        {
+            return DatabaseContext.ExecuteReader(CommandType.StoredProcedure, "GetList_ProductSearch", MethodBase.GetCurrentMethod().GetParameters(), new object[] { pProductIds, pCustomerId, pStartDate, pEndDate });
+        }
+        
+        public DataTable GetProductNames()
+        {
+            return DatabaseContext.ExecuteReader(CommandType.StoredProcedure, "GetList_Product_Name", MethodBase.GetCurrentMethod().GetParameters(), new object[] {  });
+        }
+
+    
+
         public DataTable GetProductByCustomerIdAndTodayPrice(int pCustomerId)
         {
             return DatabaseContext.ExecuteReader(CommandType.StoredProcedure, "GetList_ProductByCustomerIdAndTodayPrice", MethodBase.GetCurrentMethod().GetParameters(), new object[] { pCustomerId });
