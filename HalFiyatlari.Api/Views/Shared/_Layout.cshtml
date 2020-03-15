@@ -66,11 +66,11 @@
 
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ml-auto">
-                @*<li class="nav-item">
-                        <a href="/#contact" class="nav-link page-scroll">Contact</a>
-                    </li>*@
                 <li class="nav-item">
                     <a href="@Url.RouteUrl("Home")" class="nav-link -page-scroll">Ana Sayfa <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a href="@Url.RouteUrl("Search")" class="nav-link -page-scroll">Arama</a>
                 </li>
                 <li class="nav-item">
                     @Html.ActionLink("Api", "Index", "Help", new { area = "" }, new { @class = "nav-link" })
@@ -85,10 +85,8 @@
                 <li class="nav-item dropdown">
                     <a href="javascript:;" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle page-scroll">Ekstra</a>
                     <div aria-labelledby="navbarDropdown" class="dropdown-menu">
-                        @*<a href="terms-conditions.html" class="dropdown-item"><span class="item-text">Terms Conditions</span></a>*@
                         <a href="@Url.RouteUrl("TermsConditions")" class="dropdown-item"><span class="item-text">Şartlar ve Koşullar</span></a>
                         <div class="dropdown-items-divide-hr"></div>
-                        @*<a href="privacy-policy.html" class="dropdown-item"><span class="item-text">Privacy Policy</span></a>*@
                         <a href="@Url.RouteUrl("PrivacyPolicy")" class="dropdown-item"><span class="item-text">Gizlilik Politikası</span></a>
                     </div>
                 </li>
@@ -96,9 +94,6 @@
                 <li class="nav-item">
                     <a href="@Url.RouteUrl("Contact")" class="nav-link -page-scroll">İletişim</a>
                 </li>
-                @*<li>
-                        @Html.RouteLink("İletişim", "Contact", new { @class = "nav-link -page-scroll" })
-                    </li>*@
             </ul>
 
             <span class="nav-item social-icons">

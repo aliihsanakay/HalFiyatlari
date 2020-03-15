@@ -191,16 +191,15 @@
     <Content Include="Content\css\fontawesome-all.css" />
     <Content Include="Content\css\magnific-popup.css" />
     <Content Include="Content\css\pages\home.css" />
+    <Content Include="Content\css\pages\search.css" />
     <Content Include="Content\css\pages\_layout.css" />
     <Content Include="Content\css\styles.css" />
     <Content Include="Content\css\styles.min.css">
       <DependentUpon>styles.css</DependentUpon>
     </Content>
     <Content Include="Content\css\swiper.css" />
-    <Content Include="Content\del\bootstrap-theme.css" />
-    <Content Include="Content\del\bootstrap-theme.min.css" />
-    <Content Include="Content\del\bootstrap.css" />
-    <Content Include="Content\del\bootstrap.min.css" />
+    <Content Include="Content\css\tempusdominus-datetimepicker.css" />
+    <Content Include="Content\css\tempusdominus-datetimepicker.min.css" />
     <Content Include="Content\images\contact-background.jpg" />
     <Content Include="Content\images\customer-logo-1.png" />
     <Content Include="Content\images\customer-logo-2.png" />
@@ -245,14 +244,28 @@
     <Content Include="Content\images\up-arrow.png" />
     <Content Include="Content\images\video-frame.svg" />
     <Content Include="Content\js\bootstrap.min.js" />
+    <Content Include="Content\js\bootstrap.min.min.js">
+      <DependentUpon>bootstrap.min.js</DependentUpon>
+    </Content>
     <Content Include="Content\js\jquery.easing.min.js" />
     <Content Include="Content\js\jquery.magnific-popup.js" />
     <Content Include="Content\js\jquery.min.js" />
+    <Content Include="Content\js\locales.js" />
+    <Content Include="Content\js\locales.min.js" />
+    <Content Include="Content\js\moment-with-locales.js" />
+    <Content Include="Content\js\moment-with-locales.min.js" />
+    <Content Include="Content\js\moment.min.js" />
+    <Content Include="Content\js\pages\search.js" />
     <Content Include="Content\js\pages\home.js" />
+    <Content Include="Content\js\pages\search.min.js">
+      <DependentUpon>search.js</DependentUpon>
+    </Content>
     <Content Include="Content\js\pages\_layout.js" />
     <Content Include="Content\js\popper.min.js" />
     <Content Include="Content\js\scripts.js" />
     <Content Include="Content\js\swiper.min.js" />
+    <Content Include="Content\js\tempusdominus-datetimepicker.js" />
+    <Content Include="Content\js\tempusdominus-datetimepicker.min.js" />
     <Content Include="Content\js\validator.min.js" />
     <Content Include="Content\webfonts\fa-brands-400.svg" />
     <Content Include="Content\webfonts\fa-regular-400.svg" />
@@ -260,8 +273,6 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\del\bootstrap.js" />
-    <Content Include="Content\del\bootstrap.min.js" />
     <Content Include="Areas\HelpPage\Views\Web.config" />
     <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
@@ -295,12 +306,6 @@
     <Content Include="Content\webfonts\fa-solid-900.woff2" />
     <None Include="bundleconfig.json" />
     <None Include="Properties\PublishProfiles\ALIIHSAN.AKAY.pubxml" />
-    <None Include="Content\del\jquery-3.3.1.intellisense.js" />
-    <Content Include="Content\del\jquery-3.3.1.js" />
-    <Content Include="Content\del\jquery-3.3.1.min.js" />
-    <Content Include="Content\del\jquery-3.3.1.slim.js" />
-    <Content Include="Content\del\jquery-3.3.1.slim.min.js" />
-    <Content Include="Content\del\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -309,7 +314,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
-    <Content Include="Content\del\Site.css" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -318,6 +322,7 @@
     <Content Include="Views\Home\PrivacyPolicy.cshtml" />
     <Content Include="Views\Home\TermsConditions.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -335,21 +340,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\del\bootstrap.min.css.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\del\bootstrap.css.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\del\bootstrap-theme.min.css.map" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Content\del\bootstrap-theme.css.map" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="packages.config" />
-    <Content Include="Content\del\jquery-3.3.1.slim.min.map" />
-    <Content Include="Content\del\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\HalFiyatlari.Business\HalFiyatlari.Business.csproj">

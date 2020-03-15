@@ -8,6 +8,7 @@ namespace HalFiyatlari.Api
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new StyleBundle("~/bundles/css").Include(
+                      "~/Content/css/tempusdominus-datetimepicker.min.css",
                       "~/Content/css/bootstrap.css",
                       "~/Content/css/fontawesome-all.css",
                       "~/Content/css/swiper.css",
@@ -23,20 +24,16 @@ namespace HalFiyatlari.Api
                 "~/Content/js/jquery.easing.min.js",
                 "~/Content/js/swiper.min.js",
                 "~/Content/js/jquery.magnific-popup.js",
-                "~/Content/js/validator.min.js"
+                "~/Content/js/validator.min.js",
+                "~/Content/js/moment-with-locales.min.js",
+                "~/Content/js/tempusdominus-datetimepicker.min.js"
                 ));
 
             bundles.Add(new StyleBundle("~/bundles/script").Include("~/Content/js/pages/_layout.js", "~/Content/js/scripts.js"));
 
-            //bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/del/bootstrap.css", "~/Content/del/site.css"));
-
-            //bundles.Add(new ScriptBundle("~/bundles/jquery").Include("~/Content/del/jquery-{version}.js"));
-
             //// Use the development version of Modernizr to develop with and learn from. Then, when you're
             //// ready for production, use the build tool at https://modernizr.com to pick only the tests you need.
-            //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include("~/Content/del/modernizr-*"));
-
-            //bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include("~/Content/del/bootstrap.js"));
+            //bundles.Add(new ScriptBundle("~/bundles/modernizr").Include("~/Content/js/modernizr-*"));
         }
     }
 }

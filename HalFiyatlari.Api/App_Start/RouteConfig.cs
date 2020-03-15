@@ -40,6 +40,13 @@ namespace HalFiyatlari.Api
                 );
 
             routes.MapRoute(
+                name: "Search",
+                url: "arama",
+                defaults: new { controller = "Home", action = "Search" },
+                namespaces: nSpace
+                );
+
+            routes.MapRoute(
                 name: "Contact",
                 url: "iletisim",
                 defaults: new { controller = "Home", action = "Contact" },

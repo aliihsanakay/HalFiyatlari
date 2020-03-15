@@ -1,8 +1,8 @@
 ﻿using HalFiyatlari.Api.Models.Select;
-using HalFiyatlari.Business;
 using System.Collections.Generic;
-using System.Data;
+using HalFiyatlari.Business;
 using System.Web.Mvc;
+using System.Data;
 
 namespace HalFiyatlari.Api.Controllers
 {
@@ -31,6 +31,24 @@ namespace HalFiyatlari.Api.Controllers
             ViewBag.Customer = list;
             return View();
         }
+
+        [HttpGet]
+        public ActionResult Search()
+        {
+            ViewBag.Title = "Arama";
+            ViewBag.TitleEng = "Search";
+
+            return View();
+        }
+
+        //[HttpPost]
+        //public ActionResult Search(SearchDataModel searchDataModel)
+        //{
+        //    ViewBag.Title = "Arama";
+        //    ViewBag.TitleEng = "Search";
+
+        //    return View(searchDataModel);
+        //}
 
         public ActionResult PrivacyPolicy()
         {

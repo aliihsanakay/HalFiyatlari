@@ -4,5 +4,17 @@
     "inputFiles": [
       "Content/css/styles.css"
     ]
+  },
+  {
+    "outputFileName": "Content/js/bootstrap.min.min.js",
+    "inputFiles": [
+      "Content/js/bootstrap.min.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/js/pages/search.min.js",
+    "inputFiles": [
+      "Content/js/pages/search.js"
+    ]
   }
 ]
