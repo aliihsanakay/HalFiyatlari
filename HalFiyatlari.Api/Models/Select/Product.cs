@@ -26,7 +26,7 @@ namespace HalFiyatlari.Api.Models.Select
         public double MaxRateOfChange { get; set; }
         public bool IsMinPriceRise { get; set; }//düşük alış fiyatı yükseliştemi
         public bool IsMaxPriceRise { get; set; }//yüksek alış fiyatı yükseliştemi
-
+        public Customer Customer { get; set; }
         #endregion
         public static List<Product> GetProductByCustomerId(int pCustomerId)
         {
@@ -47,6 +47,45 @@ namespace HalFiyatlari.Api.Models.Select
                 product.CreateDate = row.Field<DateTime>("CREATEDATE");
                 product.CalculateProductPriceChange();
                 list.Add(product);
+            }
+            return list;
+        }
+        public static List<Product> GetProductSearch(string productIds,int customerId,DateTime startDate,DateTime endDate)
+        {
+            List<Product> list = new List<Product>();
+            DataTable dt = DAL.GetProductSearch(productIds,customerId,startDate,endDate);
+            foreach (DataRow row in dt.Rows)
+            {
+                Product product = new Product();
+                product.Id = row.Field<int>("ID");
+                product.Name = row.Field<string>("NAME");
+                product.Category = row.Field<string>("CATEGORY");
+                product.Unit = row.Field<string>("UNIT");
+                product.MinPrice = row.Field<double>("MINPRICE");
+                product.MaxPrice = row.Field<double>("MAXPRICE");
+                product.OldMinPrice = row.Field<double>("OLDDAYMINPRICE");
+                product.OldMaxPrice = row.Field<double>("OLDDAYMAXPRICE");
+                product.Currency = row.Field<string>("CURRENCY");
+                product.CreateDate = row.Field<DateTime>("CREATEDATE");
+                product.CalculateProductPriceChange();
+                product.Customer = new Customer();
+                product.Customer.Id = row.Field<int>("CustomerId");
+                product.Customer.Name = row.Field<string>("CustomerName");
+
+                list.Add(product);
+            }
+            return list;
+        }
+        public static List<NameValueDto> GetProductNames()
+        {
+            List<NameValueDto> list = new List<NameValueDto>();
+            DataTable dt = DAL.GetProductNames();
+            foreach (DataRow row in dt.Rows)
+            {
+                NameValueDto nameValueDto = new NameValueDto();
+                nameValueDto.Name = row.Field<string>("NAME");
+                nameValueDto.Value = row.Field<string>("ID");
+                list.Add(nameValueDto);
             }
             return list;
         }
