@@ -20,7 +20,7 @@ namespace HalFiyatlari.Business.Helper
                 msbuilder.Port = 3306;
                 msbuilder.Database = "halapp";
                 msbuilder.UserID = "adminuser";
-                msbuilder.Password = "megablue";
+                msbuilder.Password = "";
                 msbuilder.ConnectionTimeout = 120;
 
                 cs = msbuilder.ToString();
